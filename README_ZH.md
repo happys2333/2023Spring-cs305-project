@@ -23,7 +23,11 @@ Ryu的[官方资源](https://ryu-sdn.org/resources.html)。
     - run_mininet.py  Mininet运行脚本
 - controller.py       你的Ryu控制器
 ```
+
+
 我们设计的框架思路是一个Ryu控制器操控整个Mininet架构，如下图所示
+
+
 ![架构图](img/design.png)
 ## 环境配置
 我们提醒任何人都应该将本节**一字不落**的读清楚，如果你的基础环境配置遇到问题，请务必按照这个说明重新配置。
