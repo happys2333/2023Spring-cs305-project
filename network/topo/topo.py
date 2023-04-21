@@ -168,3 +168,7 @@ class InternetServerTopology(Topo):
         self.addLink(accessSwitch5, client8)
         self.addLink(accessSwitch5, client9)
         self.addLink(accessSwitch5, client10)
+
+    def __init__(self, *args, **params):
+        super().__init__(*args, **params)
+        self.build()
