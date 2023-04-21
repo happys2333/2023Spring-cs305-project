@@ -1,5 +1,4 @@
 # mininet command line tools to help you test
-import logging
 
 
 # ping a host from another host
@@ -13,8 +12,8 @@ def send_arp(node, count=1):
 
 
 # arp all hosts
-def do_arp_all(mn):
-    for h in mn.hosts:
+def do_arp_all(net):
+    for h in net.hosts:
         # Send a "join message", which is a gratuitous ARP
         send_arp(h)
 
@@ -23,4 +22,8 @@ def do_arp_all(mn):
 def set_ip(host, ip):
     host.setIP(ip, intf='%s-eth0' % host.name)
 
-# router config
+# disable ipv6
+def disable_ipv6(node):
+    node.cmd("sysctl -w net.ipv6.conf.all.disable_ipv6=1")
+    node.cmd("sysctl -w net.ipv6.conf.default.disable_ipv6=1")
+    node.cmd("sysctl -w net.ipv6.conf.lo.disable_ipv6=1")

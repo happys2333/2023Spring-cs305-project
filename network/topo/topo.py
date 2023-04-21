@@ -1,17 +1,17 @@
 from mininet.topo import Topo
 
+
 # a simple topology with 3 hosts and 1 switch
 class StarTopology(Topo):
     def build(self):
         s1 = self.addSwitch('s1')
         for i in range(3):
-            h = self.addHost('h%s' % (i+1))
+            h = self.addHost('h%s' % (i + 1))
             self.addLink(s1, h)
 
     def __init__(self, *args, **params):
         super().__init__(*args, **params)
         self.build()
-
 
 
 # a simple topology with 3 hosts and 3 switches connected in a linear fashion
@@ -28,6 +28,7 @@ class LinearTopology(Topo):
         self.addLink(s3, h1)
         self.addLink(s3, h2)
         self.addLink(s3, h3)
+
     def __init__(self, *args, **params):
         super().__init__(*args, **params)
         self.build()
@@ -43,6 +44,7 @@ class RingTopology(Topo):
         self.addLink(s2, s3)
         self.addLink(s3, s4)
         self.addLink(s4, s1)
+
     def __init__(self, *args, **params):
         super().__init__(*args, **params)
         self.build()
@@ -57,10 +59,10 @@ class InternetTopology(Topo):
         accessSwitch2 = self.addSwitch('s5')
 
         for i in range(5):
-            host = self.addHost('h%s' % (i+1))
+            host = self.addHost('h%s' % (i + 1))
             self.addLink(accessSwitch1, host)
         for i in range(5, 10):
-            host = self.addHost('h%s' % (i+1))
+            host = self.addHost('h%s' % (i + 1))
             self.addLink(accessSwitch2, host)
 
         self.addLink(coreSwitch, aggrSwitch1)
@@ -69,9 +71,11 @@ class InternetTopology(Topo):
         self.addLink(aggrSwitch2, accessSwitch1)
         self.addLink(aggrSwitch1, accessSwitch2)
         self.addLink(aggrSwitch2, accessSwitch2)
+
     def __init__(self, *args, **params):
         super().__init__(*args, **params)
         self.build()
+
 
 class DualRingTopology(Topo):
     def build(self):
@@ -89,6 +93,7 @@ class DualRingTopology(Topo):
         self.addLink(s6, s1)
         self.addLink(s2, s5)
         self.addLink(s3, s6)
+
     def __init__(self, *args, **params):
         super().__init__(*args, **params)
         self.build()

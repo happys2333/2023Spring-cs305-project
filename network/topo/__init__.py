@@ -1,15 +1,7 @@
-from .intranet_topo import *
-from .internet_topo import *
+from .topo import *
 
-intranet_topo = {
-    "Single": SingleSwitchTopology,
-    "Double": TwoSwitchTopology,
-    "Three": ThreeTierTopology,
-    "Router": SimpleRouterTopology,
 
-}
-
-internet_topo = {
+net_topo = {
     "Star" : StarTopology,
     "Linear" : LinearTopology,
     "Ring": RingTopology,
