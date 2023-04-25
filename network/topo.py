@@ -172,3 +172,11 @@ class InternetServerTopology(Topo):
     def __init__(self, *args, **params):
         super().__init__(*args, **params)
         self.build()
+
+net_topo = {
+    "Star" : StarTopology,
+    "Linear" : LinearTopology,
+    "Ring": RingTopology,
+    "Internet": InternetTopology,
+    "Server": InternetServerTopology,
+}

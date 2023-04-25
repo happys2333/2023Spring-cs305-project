@@ -7,12 +7,14 @@ from ryu.ofproto import ofproto_v1_3
 from ryu.lib.packet import packet, ethernet, ether_types, arp
 from topo_builder import TopoGraph
 
-
+# ryu-manager controller.py
+# Router App for Mininet
 class RoutingApp(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
         self.topo = TopoGraph("mininet")
         # TODO: implement initialization code here
 

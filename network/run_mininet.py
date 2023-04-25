@@ -6,6 +6,7 @@ from command_tool import disable_ipv6, do_arp_all
 from mininet.cli import CLI
 from mininet.net import Mininet
 from mininet.node import OVSSwitch, RemoteController
+
 from mininet.topolib import TreeTopo
 from mininet.log import setLogLevel, info
 
@@ -23,8 +24,11 @@ if __name__ == '__main__':
     for h in net.hosts:
         disable_ipv6(h)
 
+
     for h in net.switches:
         disable_ipv6(h)
+
+
     net.start()
     do_arp_all(net)
     CLI(net)
